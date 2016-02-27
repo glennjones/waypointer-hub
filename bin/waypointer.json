@@ -98,8 +98,8 @@
                     "text": {
                         "after": [
                             {
-                                "html": "<h2 id=\"notes\">Notes</h2>\n<p> <strong>Some notes about</strong></p>\n",
-                                "class": "notes"
+                                "html": "<p> <strong>Note:</strong> Some notes about this endpoint.</p>\n",
+                                "class": "alert tip"
                             }
                         ]
                     }

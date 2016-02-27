@@ -1,3 +1,208 @@
+{{> hub-head }}
+
+<body>
+  {{> hub-header }}
+
+  <div id="wrapper">
+    <div class="content">
+
+
+
+            {{#if text.before}}
+                <section class="group">
+                    {{#each text.before}}
+                        <section id="{{id}}" class="group-item before {{class}}">
+                                <h1>{{name}}</h1>
+                                <div>{{{html}}}</div>
+                        </section>
+                    {{/each}}
+                </section>
+            {{/if}}
+
+
+
+            {{#each groups}}
+                <section class="group" id="group-{{name}}">
+                <h1>{{name}}</h1>
+                <p>{{description}}</p>
+
+                {{#each text.before}}
+                    <div class="before {{class}}">{{{html}}}</div>
+                {{/each}}
+
+
+                {{#each endpoints}}
+
+                    <section id="{{id}}" class="group-item endpoint">
+
+                    <h2>{{summary}}</h2>
+                    <p>{{description}}</p>
+
+                    {{#each text.before}}
+                        <div class="before {{class}}">{{{html}}}</div>
+                    {{/each}}
+
+                    <pre><code class="curl">{{uppercase this.method}} {{hub-urltemplate this.path}}</code></pre>
+
+                    {{#if parameters.header}}
+                        <h3>Headers parameters</h3>
+                        <table>
+                            {{> hub-tablehead }}
+                            <tbody>
+                                {{> hub-tablerow }}
+                            </tbody>
+                        </table>
+                    {{/if}}
+
+                    {{#if parameters.query}}
+                        <h3>Querystring parameters</h3>
+                        <table>
+                            {{> hub-tablehead }}
+                            <tbody>
+                                {{#each parameters.query}}
+                                    {{> hub-tablerow }}
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    {{/if}}
+
+                    {{#if parameters.path}}
+                        <h3>Path parameters</h3>
+                        <table>
+                            {{> hub-tablehead }}
+                            <tbody>
+                                {{#each parameters.path}}
+                                    {{> hub-tablerow }}
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    {{/if}}
+
+                    {{#if parameters.form}}
+                        <h3>Form parameters</h3>
+                        <table class="parameter-table pure-table pure-table-bordered">
+                            {{> hub-tablehead }}
+                        <tbody>
+                            {{#each parameters.form}}
+                                {{> hub-tablerow }}
+                            {{/each}}
+                        </tbody>
+                        </table>
+                    {{/if}}
+
+
+                    {{#if parameters.body}}
+                        <h3>Example</h3>
+                        {{#if parameters.body.examples}}
+                            {{#each parameters.body.examples}}
+                                <pre><code class="{{format}}">{{data}}</code></pre>
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+
+
+                    {{#if responses.success}}
+                        {{#each responses.success}}
+
+
+
+                            {{#if examples}}
+
+                                <h3>Response</h3>
+                                <pre class="highlight highlight-headers"><code>Status: {{statusCode}} {{description}}</code></pre>
+                                {{#each examples}}
+                                    <pre class="highlight highlight-json"><code class="{{lowercase name}}">{{data}}</code></pre>
+                                {{/each}}
+
+                            {{/if}}
+
+                        {{/each}}
+                    {{/if}}
+
+                    <!--
+                    {{#if responses.errors}}
+                        <h3>Possible error responses</h3>
+                        <table class="parameter-table pure-table pure-table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Status code</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            {{#each responses.errors}}
+                                <tr>
+                                    <td><code>{{statusCode}}</code></td>
+                                    <td>{{description}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                        </table>
+                    {{/if}}
+                    -->
+
+
+                    <!--
+                    {{#if code}}
+                        <h3>Example code snippet to make API request:</h3>
+
+                        <div class="tabs">
+                        {{#each code}}
+                            <input id="tab-{{../id}}-{{name}}-code" type="radio" name="grp-{{../id}}-code" {{#compare @index "===" 0}}checked="checked"{{/compare}}/>
+                            <label for="tab-{{../id}}-{{name}}-code">{{name}}</label>
+                            <div>
+                                <pre><code class="{{format}}">{{snippet}}</code></pre>
+                            </div>
+                        {{/each}}
+                        </div>
+
+                    {{/if}}
+                    -->
+
+
+                    {{#each text.after}}
+                        <div class="after {{class}}">{{{html}}}</div>
+                    {{/each}}
+
+                    </section>
+                {{/each}}
+
+                    {{#each text.after}}
+                        <div class="after {{class}}">{{{html}}}</div>
+                    {{/each}}
+
+                </section>
+            {{/each}}
+
+                {{#if text.after}}
+                    <section class="group">
+                        {{#each text.after}}
+                            <section id="{{id}}" class="after {{class}}">
+                                    <h1>{{name}}</h1>
+                                    <div>{{{html}}}</div>
+                            </section>
+                        {{/each}}
+                    </section>
+                {{/if}}
+
+
+
+
+
+
+    </div>
+
+    {{> hub-sidebar }}
+  </div><!-- #wrapper -->
+
+  {{> hub-footer }}
+</body>
+</html>
+
+
+
+<!--
+
 <html>
 
 <head>
@@ -93,9 +298,9 @@
                     {{#if parameters.header}}
                         <h3>Headers parameters</h3>
                         <table class="parameter-table pure-table pure-table-bordered">
-                            {{> plain-tablehead }}
+                            {{> hub-tablehead }}
                         <tbody>
-                            {{> plain-tablerow }}
+                            {{> hub-tablerow }}
                         </tbody>
                         </table>
                     {{/if}}
@@ -103,10 +308,10 @@
                     {{#if parameters.query}}
                         <h3>Querystring parameters</h3>
                         <table class="parameter-table pure-table pure-table-bordered">
-                            {{> plain-tablehead }}
+                            {{> hub-tablehead }}
                         <tbody>
                             {{#each parameters.query}}
-                                {{> plain-tablerow }}
+                                {{> hub-tablerow }}
                             {{/each}}
                         </tbody>
                         </table>
@@ -115,10 +320,10 @@
                     {{#if parameters.path}}
                         <h3>Path parameters</h3>
                         <table class="parameter-table pure-table pure-table-bordered">
-                            {{> plain-tablehead }}
+                            {{> hub-tablehead }}
                         <tbody>
                             {{#each parameters.path}}
-                                {{> plain-tablerow }}
+                                {{> hub-tablerow }}
                             {{/each}}
                         </tbody>
                         </table>
@@ -127,10 +332,10 @@
                     {{#if parameters.form}}
                         <h3>Form parameters</h3>
                         <table class="parameter-table pure-table pure-table-bordered">
-                            {{> plain-tablehead }}
+                            {{> hub-tablehead }}
                         <tbody>
                             {{#each parameters.form}}
-                                {{> plain-tablerow }}
+                                {{> hub-tablerow }}
                             {{/each}}
                         </tbody>
                         </table>
@@ -166,12 +371,7 @@
                     {{#if responses.success}}
                         {{#each responses.success}}
 
-                            <!--
-                            <code>{{statusCode}}</code> {{description}}
-                            {{#if schema}}
-                                <pre><code class="json">{{{schema}}}</code></pre>
-                            {{/if}}
-                            -->
+
 
                             {{#if examples}}
 
@@ -218,12 +418,6 @@
 
                     {{#if code}}
                         <h3>Example code snippet to make API request:</h3>
-                        <!--
-                        {{#each code}}
-                            <h3>{{name}}</h3>
-                            <pre><code class="{{format}}">{{{snippet}}}</code></pre>
-                        {{/each}}
-                        -->
 
                         <div class="tabs">
                         {{#each code}}
@@ -276,4 +470,6 @@
     </boby>
 
 </html>
+
+-->
 

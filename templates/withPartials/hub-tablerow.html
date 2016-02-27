@@ -1,18 +1,16 @@
 <tr>
-    <td>{{name}}</td>
-    <td>{{type}}</td>
+    <td><code>{{name}}</code></td>
+    <td><code>{{type}}</code></td>
     <td>
-        {{#if required}}<strong>required</strong> {{/if}}
-        {{description}}
-        {{#if default}} Dafault: <code>{{this.default}}</code>{{/if}}
+        {{#if required}}<strong>Required.</strong> {{/if}}
+        {{capitalizeFirst description}}
         {{#if enum}}
-        <div>Excepted values:
-            <ul>
+        <div>Can be one of: </br>
                 {{#each enum}}
-                <li><code>{{this}}</code></li>{{/each}}
-            </ul>
+                * <code>{{this}}</code> </br>
+                {{/each}}
         </div>
         {{/if}}
+        {{#if default}} Default: <code>{{this.default}}</code>{{/if}}
     </td>
-    <td><code>{{example}}</code></td>
 </tr>

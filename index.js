@@ -8,7 +8,7 @@ exports.register = function (plugin, options, next) {
     const assetDirPath = Path.join(__dirname,  Path.sep + 'assets');
     const templateDirPath = Path.join(__dirname,  Path.sep + 'templates');
     const shortName =  'hub';
-    
+
     let theme = {
         'name': Package.name,
         'version': Package.version,
@@ -19,12 +19,16 @@ exports.register = function (plugin, options, next) {
         'groupItemPages': false,
         'assetPath': assetDirPath,
         'cssLinks': [
-            '/waypointer/' + shortName + '/css/hub.css',
-            '/waypointer/' + shortName + '/css/pure-min.css',
+            '/waypointer/' + shortName + '/css/reset.css',
+            '/waypointer/' + shortName + '/css/documentation.css',
+            '/waypointer/' + shortName + '/css/pagination.css',
+            '/waypointer/' + shortName + '/css/pygments.css',
             '/waypointer/' + shortName + '/css/tomorrow.min.css'
         ],
         'jsLinks': [
-            '/waypointer/' + shortName + '/js/hub.js',
+            '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+            '/waypointer/' + shortName + '/js/documentation.js',
+            '/waypointer/' + shortName + '/js/images.js',
             '/waypointer/' + shortName + '/js/highlight.min.js'
         ]
     }
