@@ -1,0 +1,23 @@
+
+{{#if errors}}
+    <section id="httperrors" class="group">
+        <h1>HTTP errors</h1>
+        <p>The API endpoints can return a number HTTP errors if something goes wrong with your request.
+        <table>
+            <thead>
+                <tr>
+                    <th>Status Code</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each errors}}
+                <tr>
+                    <td><code>{{statusCode}}</code></td>
+                    <td>{{description}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+        </table>
+    </section>
+{{/if}}

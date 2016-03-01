@@ -23,16 +23,7 @@ $(function() {
         }
       }
 
-  // bind every href with a hash; take a look at v3/search/ for example
-  $('#js-sidebar .js-accordion-list .js-topic a[href*=#]').bind("click", function(e) {
-    if (window.location.toString().indexOf($(e.target).attr('href')) == -1)
-      setTimeout(styleTOC, 0); // trigger the window.location change, then stylize
-  });
 
-  // hide list items at startup
-  if($('body.api') && window.location){
-    styleTOC();
-  }
 
   $('#js-sidebar .js-topic').each(function(){
     if(($(this).find('.disable').length == 0 || firstOccurance == false) &&
@@ -74,25 +65,30 @@ $(function() {
     return false
   })
 
-  // Grab API status
-  $.getJSON('https://status.github.com/api/status.json?callback=?', function(data) {
-    if(data) {
-      var link = $("<a>")
-        .attr("href", "https://status.github.com")
-        .addClass(data.status)
-        .attr("title", "API Status: " + data.status + ". Click for details.")
-        .text("API Status: " + data.status);
-      $('.api-status').html(link);
+
+  if (groupSelection && groupSelection !== undefined) {
+      $('#' + groupSelection + '-menu .js-expand-btn').toggleClass('collapsed expanded');
+      $('#' + groupSelection + '-menu .js-guides li').slideToggle(100);
+
+      // using hash
+    var hash = document.location.hash;
+    if (hash) {
+        $('#' + groupSelection + '-' + hash.replace('#', '') + '-menu').addClass('disable');
     }
+    // using path
+    if (itemSelection && itemSelection !== undefined) {
+        $('#' + groupSelection + '-' + itemSelection + '-menu').addClass('disable');
+    }
+  }
+
+
+  $('#js-sidebar .js-guides li a[href*=#]').bind("click", function(e) {
+     $('#js-sidebar .js-guides li').removeClass( 'disable' );
+     $(e.target).parent().addClass('disable')
   });
 
-  // Earth animation
-  if ($('.dev-program').length) {
-    setTimeout(function() {
-      $('.earth').fadeOut();
-      $('.earth-short-loop').show();
-    }, 19 * 1000); // Let first loop run through 19 seconds
-  }
+
+
 });
 
 
@@ -104,5 +100,10 @@ addEventListener('load', function() {
     var nodeList = document.querySelectorAll('pre code.json');
     for (var i = 0; i < nodeList.length; ++i) {
         hljs.highlightBlock(nodeList[i]);
+    }
+
+    var stickyElements = document.getElementsByClassName('sticky');
+    for (var i = stickyElements.length - 1; i >= 0; i--) {
+        Stickyfill.add(stickyElements[i]);
     }
 });

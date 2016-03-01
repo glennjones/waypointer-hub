@@ -15,8 +15,9 @@ exports.register = function (plugin, options, next) {
         'shortName': shortName,
         'templatesPath': templateDirPath,
         'partialsPath': templateDirPath + Path.sep + 'withPartials',
-        'groupPages': false,
-        'groupItemPages': false,
+        'indexPage': false,
+        'groupPages': true,
+        'itemPages': true,
         'assetPath': assetDirPath,
         'cssLinks': [
             '/waypointer/' + shortName + '/css/reset.css',
@@ -26,10 +27,11 @@ exports.register = function (plugin, options, next) {
             '/waypointer/' + shortName + '/css/tomorrow.min.css'
         ],
         'jsLinks': [
-            '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+            '/waypointer/' + shortName + '/js/jquery.min.js',
             '/waypointer/' + shortName + '/js/documentation.js',
             '/waypointer/' + shortName + '/js/images.js',
-            '/waypointer/' + shortName + '/js/highlight.min.js'
+            '/waypointer/' + shortName + '/js/highlight.min.js',
+            '/waypointer/' + shortName + '/js/stickyfill.js'
         ]
     }
     // Not used for this theme

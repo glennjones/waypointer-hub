@@ -11,8 +11,25 @@ Please read https://github.com/github/developer.github.com#licenses
     margin-top: 1em;
 }
 
+.sidebar-module ul ul li a.single-menu-item{
+    padding-left: 11px;
+}
+
 .highlight-headers+pre.highlight {
 	margin-top: -2px;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.sticky:before,
+.sticky:after {
+    content: '';
+    display: table;
 }
 
 highlight-headers+pre {
@@ -494,7 +511,7 @@ a img {
 ------------------------------------------------------------------------------*/
 
 .wrapper {
-  max-width: 980px;
+  width: 980px;
   margin: 0 auto;
 }
 

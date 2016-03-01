@@ -16,4 +16,15 @@
         <script src="{{this}}"></script>
     {{/each}}
 
+    <script>
+        var groupSelection, itemSelection;
+        {{#if theme.groupSelection}}
+            groupSelection = '{{theme.groupSelection}}';
+        {{/if}}
+        {{#if theme.itemSelection}}
+            itemSelection = '{{theme.itemSelection}}';
+        {{/if}}
+    </script>
+
+
 </head>

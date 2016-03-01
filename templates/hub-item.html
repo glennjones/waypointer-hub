@@ -1,0 +1,63 @@
+{{> hub-head }}
+
+<body>
+  {{> hub-header }}
+
+  <div id="wrapper">
+    <div class="content">
+
+
+        {{#is "text" theme.groupSelection}}
+
+            {{#each text.before}}
+                {{#is id ../theme.itemSelection}}
+                <section class="group">
+                    <section id="{{id}}" class="group-item before {{class}}">
+                            <h1>{{name}}</h1>
+                            <div>{{{html}}}</div>
+                    </section>
+                </section>
+                {{/is}}
+            {{/each}}
+
+            {{#each text.after}}
+                {{#is id ../theme.itemSelection}}
+                <section class="group">
+                    <section id="{{id}}" class="group-item after {{class}}">
+                            <h1>{{name}}</h1>
+                            <div>{{{html}}}</div>
+                    </section>
+                </section>
+                {{/is}}
+            {{/each}}
+
+        {{/is}}
+
+
+        {{#is "all" theme.groupSelection}}
+            {{#is "httperrors" theme.itemSelection}}
+                {{> hub-httperrors }}
+            {{/is}}
+        {{/is}}
+
+
+        {{#each groups}}
+            {{#is name ../theme.groupSelection}}
+                {{#each endpoints}}
+                    {{#is id ../../theme.itemSelection}}
+                        {{> hub-endpoint }}
+                    {{/is}}
+                {{/each}}
+            {{/is}}
+        {{/each}}
+
+
+    </div>
+
+    {{> hub-sidebar }}
+  </div>
+
+  {{> hub-footer }}
+</body>
+</html>
+

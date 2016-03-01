@@ -1,0 +1,43 @@
+{{> hub-head }}
+
+<body>
+  {{> hub-header }}
+
+  <div id="wrapper">
+    <div class="content">
+
+            {{#each groups}}
+                {{#is name ../theme.groupSelection}}
+
+                    <section class="group" id="group-{{name}}">
+
+                        <h1>{{name}}</h1>
+                        <p>{{description}}</p>
+
+                        {{#each text.before}}
+                            <div class="before {{class}}">{{{html}}}</div>
+                        {{/each}}
+
+
+                        {{#each endpoints}}
+                            {{> hub-endpoint }}
+                        {{/each}}
+
+                        {{#each text.after}}
+                            <div class="after {{class}}">{{{html}}}</div>
+                        {{/each}}
+
+                    </section>
+
+                {{/is}}
+            {{/each}}
+
+    </div>
+
+    {{> hub-sidebar }}
+  </div>
+
+  {{> hub-footer }}
+</body>
+</html>
+

@@ -2,9 +2,9 @@
 
 ## IN DEVELOPMENT - API NOT STABLE
 
-"A html theme for waypointer based lossly on githubs api documentation style.
+A html theme for Waypointer based lossly on githubs api documentation style.
 
-````bash
+```bash
 $ npm install waypointer-hub
 ```
 
@@ -12,7 +12,7 @@ $ npm install waypointer-hub
 const Waypointer = require('waypointer');
 
 let options = {
-    'swagger': {... a swagger json onject}
+    'swagger': {... a swagger json object}
     'themes': [{
         theme: require('waypointer-hub')
     }]
@@ -29,17 +29,21 @@ waypointer.buildDist( options, (err, waypointer) => {
 });
 ```
 
-
-
-
-## Lab test
-The project has integration and unit tests. To run the test within the project type one of the following commands.
+## Test server
+From within the projects directory
 ```bash
-$ lab
-$ lab -r html -o coverage.html
-$ lab -r html -o coverage.html --lint
-$ lab -r console -o stdout -r html -o coverage.html --lint
+$ npm i
+$ node bin/test-server.js
 ```
+In your browser go to http://localhost:3012/waypointer/
+
+## TODO
+* Add images of interface
+* Add description of parent project
+* Add grunt to to concat the js and css files
+* Add media queries - the orginal layout is designed for desktop
+* Add documentation of the key features in templates
+* Add documentation of forking the project and reuse of templates
 
 ## Issues
 If you find any issue please file here on github and I will try and fix them.

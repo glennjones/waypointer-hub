@@ -1,5 +1,16 @@
 {
     "waypointer": "1.0.0",
+    "cssLinks": [
+        "css/plain.css",
+        "//yui.yahooapis.com/pure/0.6.0/pure-min.css",
+        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css",
+        null
+    ],
+    "jsLinks": [
+        "js/plain.js",
+        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js",
+        null
+    ],
     "schemes": [
         "http"
     ],
@@ -72,18 +83,18 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the first number",
-                                "type": "number",
-                                "required": true,
                                 "name": "a",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the first number",
+                                "required": true
                             },
                             {
-                                "description": "the second number",
-                                "type": "number",
-                                "required": true,
                                 "name": "b",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the second number",
+                                "required": true
                             }
                         ]
                     },
@@ -98,7 +109,7 @@
                     "text": {
                         "after": [
                             {
-                                "html": "<p> <strong>Note:</strong> Some notes about this endpoint.</p>\n",
+                                "html": "<p><strong>Notes:</strong> Some notes about this endpoint.</p>\n",
                                 "class": "alert tip"
                             }
                         ]
@@ -134,18 +145,18 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the first number - can NOT be 0",
-                                "type": "number",
-                                "required": true,
                                 "name": "a",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the first number - can NOT be 0",
+                                "required": true
                             },
                             {
-                                "description": "the second number - can NOT be 0",
-                                "type": "number",
-                                "required": true,
                                 "name": "b",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the second number - can NOT be 0",
+                                "required": true
                             }
                         ]
                     },
@@ -161,7 +172,24 @@
                                         "mimeType": "application/json",
                                         "data": "{\n  \"equals\": 0\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -210,18 +238,18 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the first number",
-                                "type": "number",
-                                "required": true,
                                 "name": "a",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the first number",
+                                "required": true
                             },
                             {
-                                "description": "the second number",
-                                "type": "number",
-                                "required": true,
                                 "name": "b",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the second number",
+                                "required": true
                             }
                         ]
                     },
@@ -237,7 +265,24 @@
                                         "mimeType": "application/json",
                                         "data": "{\n  \"equals\": 0\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -285,18 +330,18 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the first number",
-                                "type": "number",
-                                "required": true,
                                 "name": "a",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the first number",
+                                "required": true
                             },
                             {
-                                "description": "the second number",
-                                "type": "number",
-                                "required": true,
                                 "name": "b",
-                                "example": "5"
+                                "example": "5",
+                                "type": "number",
+                                "description": "the second number",
+                                "required": true
                             }
                         ]
                     },
@@ -312,7 +357,24 @@
                                         "mimeType": "application/json",
                                         "data": "{\n  \"equals\": 0\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -402,28 +464,28 @@
                     "parameters": {
                         "header": [
                             {
-                                "description": "return result as decimal or binary",
-                                "type": "string",
                                 "enum": [
                                     "decimal",
                                     "binary"
                                 ],
                                 "default": "decimal",
+                                "type": "string",
+                                "description": "return result as decimal or binary",
                                 "name": "x-format"
                             }
                         ],
                         "query": [
                             {
-                                "description": "the page number",
+                                "example": 1,
                                 "type": "number",
-                                "name": "page",
-                                "example": 1
+                                "description": "the page number",
+                                "name": "page"
                             },
                             {
-                                "description": "the number of items to a page",
+                                "example": 10,
                                 "type": "number",
-                                "name": "pagesize",
-                                "example": 10
+                                "description": "the number of items to a page",
+                                "name": "pagesize"
                             }
                         ]
                     },
@@ -432,14 +494,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"items\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\",\n            \"example\": \"x78P9c\"\n          },\n          \"a\": {\n            \"type\": \"number\",\n            \"example\": 5\n          },\n          \"b\": {\n            \"type\": \"number\",\n            \"example\": 5\n          },\n          \"operator\": {\n            \"description\": \"either +, -, /, or *\",\n            \"type\": \"string\",\n            \"example\": \"+\"\n          },\n          \"equals\": {\n            \"type\": \"number\",\n            \"example\": 10\n          },\n          \"created\": {\n            \"description\": \"ISO date string\",\n            \"type\": \"string\",\n            \"example\": \"2015-12-01\"\n          },\n          \"modified\": {\n            \"description\": \"ISO date string\",\n            \"type\": \"string\",\n            \"example\": \"2015-12-01\"\n          }\n        },\n        \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"],\n        \"type\": \"object\"\n      }\n    },\n    \"count\": {\n      \"type\": \"number\",\n      \"example\": \"1\"\n    },\n    \"pageSize\": {\n      \"type\": \"number\",\n      \"example\": \"10\"\n    },\n    \"page\": {\n      \"type\": \"number\",\n      \"example\": \"1\"\n    },\n    \"pageCount\": {\n      \"type\": \"number\",\n      \"example\": \"1\"\n    }\n  },\n  \"required\": [\"count\", \"pageSize\", \"page\", \"pageCount\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"items\": {\n      \"items\": {\n        \"properties\": {\n          \"id\": {\n            \"example\": \"x78P9c\",\n            \"type\": \"string\"\n          },\n          \"a\": {\n            \"example\": 5,\n            \"type\": \"number\"\n          },\n          \"b\": {\n            \"example\": 5,\n            \"type\": \"number\"\n          },\n          \"operator\": {\n            \"example\": \"+\",\n            \"type\": \"string\",\n            \"description\": \"either +, -, /, or *\"\n          },\n          \"equals\": {\n            \"example\": 10,\n            \"type\": \"number\"\n          },\n          \"created\": {\n            \"example\": \"2015-12-01\",\n            \"type\": \"string\",\n            \"description\": \"ISO date string\"\n          },\n          \"modified\": {\n            \"type\": \"string\",\n            \"example\": \"2015-12-01\",\n            \"description\": \"ISO date string\"\n          }\n        },\n        \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"],\n        \"type\": \"object\"\n      },\n      \"type\": \"array\"\n    },\n    \"count\": {\n      \"example\": \"1\",\n      \"type\": \"number\"\n    },\n    \"pageSize\": {\n      \"example\": \"10\",\n      \"type\": \"number\"\n    },\n    \"page\": {\n      \"example\": \"1\",\n      \"type\": \"number\"\n    },\n    \"pageCount\": {\n      \"example\": \"1\",\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\"count\", \"pageSize\", \"page\", \"pageCount\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"items\": [{\n    \"id\": \"x78P9c\",\n    \"a\": 5,\n    \"b\": 5,\n    \"operator\": \"+\",\n    \"equals\": 10,\n    \"created\": \"2015-12-01\",\n    \"modified\": \"2015-12-01\"\n  }],\n  \"count\": 1,\n  \"pageSize\": 10,\n  \"page\": 1,\n  \"pageCount\": 1\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -495,22 +574,20 @@
                     "parameters": {
                         "form": [
                             {
-                                "description": "the first number",
-                                "type": "number",
-                                "required": true,
+                                "name": "a",
                                 "default": 10,
-                                "name": "a"
-                            },
-                            {
-                                "description": "the second number",
                                 "type": "number",
-                                "required": true,
-                                "name": "b"
+                                "description": "the first number",
+                                "required": true
                             },
                             {
-                                "description": "the opertator i.e. + - / or *",
-                                "type": "string",
-                                "required": true,
+                                "name": "b",
+                                "type": "number",
+                                "description": "the second number",
+                                "required": true
+                            },
+                            {
+                                "name": "operator",
                                 "enum": [
                                     "+",
                                     "-",
@@ -518,13 +595,15 @@
                                     "*"
                                 ],
                                 "default": "+",
-                                "name": "operator"
+                                "type": "string",
+                                "description": "the opertator i.e. + - / or *",
+                                "required": true
                             },
                             {
-                                "description": "the result of the sum",
+                                "name": "equals",
                                 "type": "number",
-                                "required": true,
-                                "name": "equals"
+                                "description": "the result of the sum",
+                                "required": true
                             }
                         ]
                     },
@@ -533,14 +612,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"description\": \"json body for sum\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"example\": \"x78P9c\"\n    },\n    \"a\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"b\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"operator\": {\n      \"description\": \"either +, -, /, or *\",\n      \"type\": \"string\",\n      \"example\": \"+\"\n    },\n    \"equals\": {\n      \"type\": \"number\",\n      \"example\": 10\n    },\n    \"created\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    },\n    \"modified\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"description\": \"json body for sum\",\n  \"properties\": {\n    \"id\": {\n      \"example\": \"x78P9c\",\n      \"type\": \"string\"\n    },\n    \"a\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"b\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"operator\": {\n      \"example\": \"+\",\n      \"type\": \"string\",\n      \"description\": \"either +, -, /, or *\"\n    },\n    \"equals\": {\n      \"example\": 10,\n      \"type\": \"number\"\n    },\n    \"created\": {\n      \"example\": \"2015-12-01\",\n      \"type\": \"string\",\n      \"description\": \"ISO date string\"\n    },\n    \"modified\": {\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\",\n      \"description\": \"ISO date string\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"id\": \"x78P9c\",\n  \"a\": 5,\n  \"b\": 5,\n  \"operator\": \"+\",\n  \"equals\": 10,\n  \"created\": \"2015-12-01\",\n  \"modified\": \"2015-12-01\"\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -588,10 +684,10 @@
                     "parameters": {
                         "form": [
                             {
-                                "description": "json file with object containing: a, b, operator and equals",
+                                "name": "file",
                                 "type": "file",
-                                "required": true,
-                                "name": "file"
+                                "description": "json file with object containing: a, b, operator and equals",
+                                "required": true
                             }
                         ]
                     },
@@ -600,14 +696,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"description\": \"json body for sum\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"example\": \"x78P9c\"\n    },\n    \"a\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"b\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"operator\": {\n      \"description\": \"either +, -, /, or *\",\n      \"type\": \"string\",\n      \"example\": \"+\"\n    },\n    \"equals\": {\n      \"type\": \"number\",\n      \"example\": 10\n    },\n    \"created\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    },\n    \"modified\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"description\": \"json body for sum\",\n  \"properties\": {\n    \"id\": {\n      \"example\": \"x78P9c\",\n      \"type\": \"string\"\n    },\n    \"a\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"b\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"operator\": {\n      \"example\": \"+\",\n      \"type\": \"string\",\n      \"description\": \"either +, -, /, or *\"\n    },\n    \"equals\": {\n      \"example\": 10,\n      \"type\": \"number\"\n    },\n    \"created\": {\n      \"example\": \"2015-12-01\",\n      \"type\": \"string\",\n      \"description\": \"ISO date string\"\n    },\n    \"modified\": {\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\",\n      \"description\": \"ISO date string\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"id\": \"x78P9c\",\n  \"a\": 5,\n  \"b\": 5,\n  \"operator\": \"+\",\n  \"equals\": 10,\n  \"created\": \"2015-12-01\",\n  \"modified\": \"2015-12-01\"\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -657,27 +770,27 @@
                             "schema": {
                                 "properties": {
                                     "a": {
-                                        "description": "the first number",
-                                        "type": "number"
+                                        "type": "number",
+                                        "description": "the first number"
                                     },
                                     "b": {
-                                        "description": "the second number",
-                                        "type": "number"
+                                        "type": "number",
+                                        "description": "the second number"
                                     },
                                     "operator": {
-                                        "description": "the opertator i.e. + - / or *",
-                                        "type": "string",
                                         "enum": [
                                             "+",
                                             "-",
                                             "/",
                                             "*"
                                         ],
-                                        "default": "+"
+                                        "default": "+",
+                                        "type": "string",
+                                        "description": "the opertator i.e. + - / or *"
                                     },
                                     "equals": {
-                                        "description": "the result of the sum",
-                                        "type": "number"
+                                        "type": "number",
+                                        "description": "the result of the sum"
                                     }
                                 },
                                 "required": [
@@ -703,14 +816,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"description\": \"json body for sum\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"example\": \"x78P9c\"\n    },\n    \"a\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"b\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"operator\": {\n      \"description\": \"either +, -, /, or *\",\n      \"type\": \"string\",\n      \"example\": \"+\"\n    },\n    \"equals\": {\n      \"type\": \"number\",\n      \"example\": 10\n    },\n    \"created\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    },\n    \"modified\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"description\": \"json body for sum\",\n  \"properties\": {\n    \"id\": {\n      \"example\": \"x78P9c\",\n      \"type\": \"string\"\n    },\n    \"a\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"b\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"operator\": {\n      \"example\": \"+\",\n      \"type\": \"string\",\n      \"description\": \"either +, -, /, or *\"\n    },\n    \"equals\": {\n      \"example\": 10,\n      \"type\": \"number\"\n    },\n    \"created\": {\n      \"example\": \"2015-12-01\",\n      \"type\": \"string\",\n      \"description\": \"ISO date string\"\n    },\n    \"modified\": {\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\",\n      \"description\": \"ISO date string\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"id\": \"x78P9c\",\n  \"a\": 5,\n  \"b\": 5,\n  \"operator\": \"+\",\n  \"equals\": 10,\n  \"created\": \"2015-12-01\",\n  \"modified\": \"2015-12-01\"\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -754,10 +884,10 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the id of the sum in the store",
+                                "name": "id",
                                 "type": "string",
-                                "required": true,
-                                "name": "id"
+                                "description": "the id of the sum in the store",
+                                "required": true
                             }
                         ]
                     },
@@ -766,14 +896,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"description\": \"json body for sum\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"example\": \"x78P9c\"\n    },\n    \"a\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"b\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"operator\": {\n      \"description\": \"either +, -, /, or *\",\n      \"type\": \"string\",\n      \"example\": \"+\"\n    },\n    \"equals\": {\n      \"type\": \"number\",\n      \"example\": 10\n    },\n    \"created\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    },\n    \"modified\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"description\": \"json body for sum\",\n  \"properties\": {\n    \"id\": {\n      \"example\": \"x78P9c\",\n      \"type\": \"string\"\n    },\n    \"a\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"b\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"operator\": {\n      \"example\": \"+\",\n      \"type\": \"string\",\n      \"description\": \"either +, -, /, or *\"\n    },\n    \"equals\": {\n      \"example\": 10,\n      \"type\": \"number\"\n    },\n    \"created\": {\n      \"example\": \"2015-12-01\",\n      \"type\": \"string\",\n      \"description\": \"ISO date string\"\n    },\n    \"modified\": {\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\",\n      \"description\": \"ISO date string\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"id\": \"x78P9c\",\n  \"a\": 5,\n  \"b\": 5,\n  \"operator\": \"+\",\n  \"equals\": 10,\n  \"created\": \"2015-12-01\",\n  \"modified\": \"2015-12-01\"\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -817,10 +964,10 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the id of the sum in the store",
+                                "name": "id",
                                 "type": "string",
-                                "required": true,
-                                "name": "id"
+                                "description": "the id of the sum in the store",
+                                "required": true
                             }
                         ]
                     },
@@ -829,14 +976,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"description\": \"json body for sum\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"example\": \"x78P9c\"\n    },\n    \"a\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"b\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"operator\": {\n      \"description\": \"either +, -, /, or *\",\n      \"type\": \"string\",\n      \"example\": \"+\"\n    },\n    \"equals\": {\n      \"type\": \"number\",\n      \"example\": 10\n    },\n    \"created\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    },\n    \"modified\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"description\": \"json body for sum\",\n  \"properties\": {\n    \"id\": {\n      \"example\": \"x78P9c\",\n      \"type\": \"string\"\n    },\n    \"a\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"b\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"operator\": {\n      \"example\": \"+\",\n      \"type\": \"string\",\n      \"description\": \"either +, -, /, or *\"\n    },\n    \"equals\": {\n      \"example\": 10,\n      \"type\": \"number\"\n    },\n    \"created\": {\n      \"example\": \"2015-12-01\",\n      \"type\": \"string\",\n      \"description\": \"ISO date string\"\n    },\n    \"modified\": {\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\",\n      \"description\": \"ISO date string\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"id\": \"x78P9c\",\n  \"a\": 5,\n  \"b\": 5,\n  \"operator\": \"+\",\n  \"equals\": 10,\n  \"created\": \"2015-12-01\",\n  \"modified\": \"2015-12-01\"\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -883,29 +1047,27 @@
                     "parameters": {
                         "path": [
                             {
-                                "description": "the id of the sum in the store",
+                                "name": "id",
                                 "type": "string",
-                                "required": true,
-                                "name": "id"
+                                "description": "the id of the sum in the store",
+                                "required": true
                             }
                         ],
                         "form": [
                             {
+                                "name": "a",
+                                "type": "number",
                                 "description": "the first number",
-                                "type": "number",
-                                "required": true,
-                                "name": "a"
+                                "required": true
                             },
                             {
+                                "name": "b",
+                                "type": "number",
                                 "description": "the second number",
-                                "type": "number",
-                                "required": true,
-                                "name": "b"
+                                "required": true
                             },
                             {
-                                "description": "the opertator i.e. + - / or *",
-                                "type": "string",
-                                "required": true,
+                                "name": "operator",
                                 "enum": [
                                     "+",
                                     "-",
@@ -913,13 +1075,15 @@
                                     "*"
                                 ],
                                 "default": "+",
-                                "name": "operator"
+                                "type": "string",
+                                "description": "the opertator i.e. + - / or *",
+                                "required": true
                             },
                             {
-                                "description": "the result of the sum",
+                                "name": "equals",
                                 "type": "number",
-                                "required": true,
-                                "name": "equals"
+                                "description": "the result of the sum",
+                                "required": true
                             }
                         ]
                     },
@@ -928,14 +1092,31 @@
                             {
                                 "statusCode": 200,
                                 "description": "Success",
-                                "schema": "{\n  \"description\": \"json body for sum\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"example\": \"x78P9c\"\n    },\n    \"a\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"b\": {\n      \"type\": \"number\",\n      \"example\": 5\n    },\n    \"operator\": {\n      \"description\": \"either +, -, /, or *\",\n      \"type\": \"string\",\n      \"example\": \"+\"\n    },\n    \"equals\": {\n      \"type\": \"number\",\n      \"example\": 10\n    },\n    \"created\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    },\n    \"modified\": {\n      \"description\": \"ISO date string\",\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
+                                "schema": "{\n  \"type\": \"object\",\n  \"description\": \"json body for sum\",\n  \"properties\": {\n    \"id\": {\n      \"example\": \"x78P9c\",\n      \"type\": \"string\"\n    },\n    \"a\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"b\": {\n      \"example\": 5,\n      \"type\": \"number\"\n    },\n    \"operator\": {\n      \"example\": \"+\",\n      \"type\": \"string\",\n      \"description\": \"either +, -, /, or *\"\n    },\n    \"equals\": {\n      \"example\": 10,\n      \"type\": \"number\"\n    },\n    \"created\": {\n      \"example\": \"2015-12-01\",\n      \"type\": \"string\",\n      \"description\": \"ISO date string\"\n    },\n    \"modified\": {\n      \"type\": \"string\",\n      \"example\": \"2015-12-01\",\n      \"description\": \"ISO date string\"\n    }\n  },\n  \"required\": [\"id\", \"a\", \"b\", \"operator\", \"equals\", \"created\"]\n}",
                                 "examples": [
                                     {
                                         "name": "JSON",
                                         "mimeType": "application/json",
                                         "data": "{\n  \"id\": \"x78P9c\",\n  \"a\": 5,\n  \"b\": 5,\n  \"operator\": \"+\",\n  \"equals\": 10,\n  \"created\": \"2015-12-01\",\n  \"modified\": \"2015-12-01\"\n}"
                                     }
-                                ]
+                                ],
+                                "headers": {
+                                    "X-Rate-Limit-Limit": {
+                                        "description": "The number of allowed requests in the current period",
+                                        "type": "integer",
+                                        "example": 5000
+                                    },
+                                    "X-Rate-Limit-Remaining": {
+                                        "description": "The number of remaining requests in the current period",
+                                        "type": "integer",
+                                        "example": 4999
+                                    },
+                                    "X-Rate-Limit-Reset": {
+                                        "description": "The number of seconds left in the current period",
+                                        "type": "integer",
+                                        "example": 1372700873
+                                    }
+                                }
                             }
                         ],
                         "errors": [
@@ -1011,17 +1192,6 @@
                 "name": "Usage policy",
                 "id": "api-usage-policy"
             }
-        ]
-    },
-    "theme": {
-        "cssLinks": [
-            "plain/css/plain.css",
-            "//yui.yahooapis.com/pure/0.6.0/pure-min.css",
-            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css"
-        ],
-        "jsLinks": [
-            "plain/js/plain.js",
-            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"
         ]
     }
 }

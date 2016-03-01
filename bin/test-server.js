@@ -64,7 +64,8 @@ server.views({
     path: templateDirPath,
     partialsPath: templateDirPath + Path.sep + 'withPartials',
     helpersPath: templateDirPath + Path.sep + 'helpers',
-    isCached: false
+    isCached: false,
+    compileOptions: {preventIndent: true}
 });
 
 
@@ -84,7 +85,6 @@ const getThemeData = function(server, option, callback){
 }
 
 
-
 server.route([{
     method: 'GET',
     path: '/waypointer/',
@@ -93,7 +93,37 @@ server.route([{
             getThemeData(request.server, {}, (err,theme) => {
                 let out = Hoek.clone(WaypointerJSON);
                 out.theme = theme;
+                out.theme.pathRoot = ''
                 reply.view('hub-index.html', out);
+            });
+        }
+    }
+},{
+    method: 'GET',
+    path: '/waypointer/{group}',
+    config: {
+        handler: (request, reply) => {
+            getThemeData(request.server, {}, (err,theme) => {
+                let out = Hoek.clone(WaypointerJSON);
+                out.theme = theme;
+                out.theme.groupSelection = request.params.group;
+                out.theme.pathRoot = ''
+                reply.view('hub-group.html', out);
+            });
+        }
+    }
+},{
+    method: 'GET',
+    path: '/waypointer/{group}/{item}',
+    config: {
+        handler: (request, reply) => {
+            getThemeData(request.server, {}, (err,theme) => {
+                let out = Hoek.clone(WaypointerJSON);
+                out.theme = theme;
+                out.theme.groupSelection = request.params.group;
+                out.theme.itemSelection = request.params.item;
+                out.theme.pathRoot = '../'
+                reply.view('hub-item.html', out);
             });
         }
     }
