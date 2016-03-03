@@ -15,7 +15,7 @@ exports.register = function (plugin, options, next) {
         'shortName': shortName,
         'templatesPath': templateDirPath,
         'partialsPath': templateDirPath + Path.sep + 'withPartials',
-        'indexPage': false,
+        'indexPage': true,
         'groupPages': true,
         'itemPages': true,
         'assetPath': assetDirPath,

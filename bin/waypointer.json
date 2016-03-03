@@ -1,16 +1,5 @@
 {
     "waypointer": "1.0.0",
-    "cssLinks": [
-        "css/plain.css",
-        "//yui.yahooapis.com/pure/0.6.0/pure-min.css",
-        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css",
-        null
-    ],
-    "jsLinks": [
-        "js/plain.js",
-        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js",
-        null
-    ],
     "schemes": [
         "http"
     ],
