@@ -15,27 +15,27 @@ exports.register = function (plugin, options, next) {
         'shortName': shortName,
         'templatesPath': templateDirPath,
         'partialsPath': templateDirPath + Path.sep + 'withPartials',
+        'helpersPath': templateDirPath + Path.sep + 'helpers',
         'indexPage': true,
         'groupPages': true,
         'itemPages': true,
         'assetPath': assetDirPath,
         'cssLinks': [
-            '/waypointer/' + shortName + '/css/reset.css',
-            '/waypointer/' + shortName + '/css/documentation.css',
-            '/waypointer/' + shortName + '/css/pagination.css',
-            '/waypointer/' + shortName + '/css/pygments.css',
-            '/waypointer/' + shortName + '/css/tomorrow.min.css'
+            '/waypointer/assets/' + shortName + '/css/reset.css',
+            '/waypointer/assets/' + shortName + '/css/documentation.css',
+            '/waypointer/assets/' + shortName + '/css/pagination.css',
+            '/waypointer/assets/' + shortName + '/css/pygments.css',
+            '/waypointer/assets/' + shortName + '/css/tomorrow.min.css'
         ],
         'jsLinks': [
-            '/waypointer/' + shortName + '/js/jquery.min.js',
-            '/waypointer/' + shortName + '/js/documentation.js',
-            '/waypointer/' + shortName + '/js/images.js',
-            '/waypointer/' + shortName + '/js/highlight.min.js',
-            '/waypointer/' + shortName + '/js/stickyfill.js'
+            '/waypointer/assets/' + shortName + '/js/jquery.min.js',
+            '/waypointer/assets/' + shortName + '/js/documentation.js',
+            '/waypointer/assets/' + shortName + '/js/images.js',
+            '/waypointer/assets/' + shortName + '/js/highlight.min.js',
+            '/waypointer/assets/' + shortName + '/js/stickyfill.js'
         ]
     }
-    // Not used for this theme
-    //'helpersPath': templateDirPath + Path.sep + 'helpers',
+
 
     if(Hoek.reach(Package, 'repository.url')){
         theme.url = Hoek.reach(Package, 'repository.url');

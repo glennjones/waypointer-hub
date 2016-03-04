@@ -87,34 +87,42 @@ const getThemeData = function(server, option, callback){
 
 server.route([{
     method: 'GET',
-    path: '/waypointer/',
+    path: '/',
+    config: {
+        handler: (request, reply) => {
+            reply.redirect('/waypointer/hub');
+        }
+    }
+},{
+    method: 'GET',
+    path: '/waypointer/hub',
     config: {
         handler: (request, reply) => {
             getThemeData(request.server, {}, (err,theme) => {
                 let out = Hoek.clone(WaypointerJSON);
                 out.theme = theme;
-                out.theme.pathRoot = ''
+                out.theme.pathRoot = '/waypointer/hub'
                 reply.view('hub-index.html', out);
             });
         }
     }
 },{
     method: 'GET',
-    path: '/waypointer/{group}',
+    path: '/waypointer/hub/{group}',
     config: {
         handler: (request, reply) => {
             getThemeData(request.server, {}, (err,theme) => {
                 let out = Hoek.clone(WaypointerJSON);
                 out.theme = theme;
                 out.theme.groupSelection = request.params.group;
-                out.theme.pathRoot = ''
+                out.theme.pathRoot = '/waypointer/hub'
                 reply.view('hub-group.html', out);
             });
         }
     }
 },{
     method: 'GET',
-    path: '/waypointer/{group}/{item}',
+    path: '/waypointer/hub/{group}/{item}',
     config: {
         handler: (request, reply) => {
             getThemeData(request.server, {}, (err,theme) => {
@@ -122,14 +130,14 @@ server.route([{
                 out.theme = theme;
                 out.theme.groupSelection = request.params.group;
                 out.theme.itemSelection = request.params.item;
-                out.theme.pathRoot = '../'
+                out.theme.pathRoot = '/waypointer/hub'
                 reply.view('hub-item.html', out);
             });
         }
     }
 },{
     method: 'GET',
-    path: '/waypointer/waypointer.json',
+    path: '/waypointer.json',
     config: {
         handler: (request, reply) => {
             getThemeData(request.server,{}, (err,theme) => {
@@ -141,7 +149,7 @@ server.route([{
     }
 },{
     method: 'GET',
-    path: '/waypointer/hub/{path*}',
+    path: '/waypointer/assets/hub/{path*}',
     handler: {
         directory: {
             path: assetDirPath,

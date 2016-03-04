@@ -4,6 +4,8 @@
 
 A html theme for Waypointer based lossly on githubs api documentation style.
 
+![Image of the hub ui](https://raw.githubusercontent.com/glennjones/waypointer-hub/master/ui/hub-ui01.png)
+
 ```bash
 $ npm install waypointer-hub
 ```

@@ -7,7 +7,7 @@
             <ul class="js-guides">
             {{#if text.before}}
                 {{#each text.before}}
-                    <li id="text-{{id}}-menu"><a class="single-menu-item" href="{{../theme.pathRoot}}text/{{id}}">{{name}}</a></li>
+                    <li id="text-{{id}}-menu"><a class="single-menu-item" href="{{../theme.pathRoot}}/text/{{id}}">{{name}}</a></li>
                 {{/each}}
             {{/if}}
             </ul>
@@ -16,10 +16,10 @@
 
     {{#each groups}}
         <li id="{{name}}-menu" class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="{{../theme.pathRoot}}{{name}}">{{name}}</a></h3>
+            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="{{../theme.pathRoot}}/{{name}}">{{name}}</a></h3>
             <ul class="js-guides">
             {{#each endpoints}}
-                <li id="{{../name}}-{{id}}-menu"><a href="{{../../theme.pathRoot}}{{../name}}#{{id}}">{{summary}}</a></li>
+                <li id="{{../name}}-{{id}}-menu"><a href="{{../../theme.pathRoot}}/{{../name}}#{{id}}">{{summary}}</a></li>
             {{/each}}
             </ul>
         </li>
@@ -28,7 +28,7 @@
     {{#if errors}}
         <li>
            <ul class="js-guides">
-               <li id="all-httperrors-menu"><a class="single-menu-item" href="{{theme.pathRoot}}all/httperrors">HTTP errors</a></li>
+               <li id="all-httperrors-menu"><a class="single-menu-item" href="{{theme.pathRoot}}/all/httperrors">HTTP errors</a></li>
            </ul>
         </li>
     {{/if}}
@@ -37,7 +37,7 @@
       <li>
            <ul class="js-guides">
                 {{#each text.after}}
-                    <li id="text-{{id}}-menu"><a class="single-menu-item" href="{{../theme.pathRoot}}text/{{id}}">{{name}}</a></li>
+                    <li id="text-{{id}}-menu"><a class="single-menu-item" href="{{../theme.pathRoot}}/text/{{id}}">{{name}}</a></li>
                 {{/each}}
            </ul>
       </li>
