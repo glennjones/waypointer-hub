@@ -1,0 +1,16 @@
+<tr>
+    <td><code>{{item.name}}</code></td>
+    <td><code>{{item.type}}</code></td>
+    <td>
+        {% if item.required%}<strong>Required.</strong> {% endif %}
+        {{item.description | capitalize}}
+        {% if item.enum%}
+        <div>Can be one of: </br>
+            {% for enum in item.enum %}
+                * <code>{{enum}}</code> </br>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if item.default%} Default: <code>{{item.default}}</code>{% endif %}
+    </td>
+</tr>

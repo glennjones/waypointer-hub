@@ -1,67 +1,76 @@
-{{> hub-head }}
+{% include "includes/hub-head.html" %}
+
 
 <body>
-  {{> hub-header }}
+    {% include "includes/hub-header.html" %}
 
-  <div id="wrapper">
-    {{> hub-sidebar }}
+    <div id="wrapper">
 
-    <div class="content">
+        {% include "includes/hub-sidebar.html" %}
+
+        <div class="content">
 
 
-            {{#if text.before}}
+            {%if text.before%}
                 <section class="group">
-                    {{#each text.before}}
-                        <section id="{{id}}" class="group-item before {{class}}">
-                                <h1>{{name}}</h1>
-                                <div>{{{html}}}</div>
+                  {% for text in text.before %}
+                        <section id="{{text.id}}" class="group-item before {{text.class}}">
+                                <h1>{{text.name}}</h1>
+                                <div>{{text.html | safe}}</div>
                         </section>
-                    {{/each}}
+                       {% endfor %}
                 </section>
-            {{/if}}
+            {% endif%}
 
 
-            {{#each groups}}
-                <section class="group" id="group-{{name}}">
+            {% for group in groups %}
+                <section class="group" id="group-{{group.name}}">
 
-                    <h1>{{name}}</h1>
-                    <p>{{description}}</p>
+                    <h1>{{group.name}}</h1>
+                    <p>{{group.description}}</p>
 
-                    {{#each text.before}}
-                        <div class="before {{class}}">{{{html}}}</div>
-                    {{/each}}
+                    {% for text in group.text.before %}
+                        <div class="before {{text.class}}">{{text.html | safe}}</div>
+                    {% endfor %}
 
-                    {{#each endpoints}}
-                        {{> hub-endpoint }}
-                    {{/each}}
+                    {% for endpoint in group.endpoints %}
+                        {% includeWith "includes/hub-endpoint.html", with={
+                            endpoint: endpoint
+                        } %}
+                    {% endfor %}
 
-                    {{#each text.after}}
-                        <div class="after {{class}}">{{{html}}}</div>
-                    {{/each}}
+                    {% for text in group.text.after %}
+                        <div class="after {{text.class}}">{{text.html | safe}}</div>
+                    {% endfor %}
 
                 </section>
-            {{/each}}
+            {% endfor %}
 
 
-            {{> hub-httperrors }}
+
+            {% includeWith "includes/hub-httperrors.html", with={
+                errors: errors
+            } %}
 
 
-            {{#if text.after}}
+
+            {%if text.after%}
                 <section class="group">
-                    {{#each text.after}}
-                        <section id="{{id}}" class="after {{class}}">
-                                <h1>{{name}}</h1>
-                                <div>{{{html}}}</div>
+                  {% for text in text.after %}
+                        <section id="{{text.id}}" class="group-item after {{text.class}}">
+                                <h1>{{text.name}}</h1>
+                                <div>{{text.html | safe}}</div>
                         </section>
-                    {{/each}}
+                       {% endfor %}
                 </section>
-            {{/if}}
+            {% endif%}
 
+
+        </div>
     </div>
 
-  </div>
-
-  {{> hub-footer }}
+{% include "includes/hub-footer.html" %}
 </body>
 </html>
+
 

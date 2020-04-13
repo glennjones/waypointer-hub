@@ -1,63 +1,68 @@
-{{> hub-head }}
+{% include "includes/hub-head.html" %}
+
 
 <body>
-  {{> hub-header }}
+    {% include "includes/hub-header.html" %}
 
   <div id="wrapper">
     <div class="content">
 
+        {% set theme = theme %}
 
-        {{#is "text" theme.groupSelection}}
 
-            {{#each text.before}}
-                {{#is id ../theme.itemSelection}}
+        {%if "text" === theme.groupSelection%}
+            {% for text in text.before %}
+                {%if text.id === theme.itemSelection%}
                 <section class="group">
-                    <section id="{{id}}" class="group-item before {{class}}">
-                            <h1>{{name}}</h1>
-                            <div>{{{html}}}</div>
+                    <section id="{{text.id}}" class="group-item before {{text.class}}">
+                            <h1>{{text.name}}</h1>
+                            <div>{{text.html | safe}}</div>
                     </section>
                 </section>
-                {{/is}}
-            {{/each}}
+                {% endif%}
+            {% endfor %}
 
-            {{#each text.after}}
-                {{#is id ../theme.itemSelection}}
+            {% for text in text.after %}
+                {%if text.id === theme.itemSelection%}
                 <section class="group">
-                    <section id="{{id}}" class="group-item after {{class}}">
-                            <h1>{{name}}</h1>
-                            <div>{{{html}}}</div>
+                    <section id="{{text.id}}" class="group-item after {{text.class}}">
+                            <h1>{{text.name}}</h1>
+                            <div>{{text.html | safe}}</div>
                     </section>
                 </section>
-                {{/is}}
-            {{/each}}
-
-        {{/is}}
-
-
-        {{#is "all" theme.groupSelection}}
-            {{#is "httperrors" theme.itemSelection}}
-                {{> hub-httperrors }}
-            {{/is}}
-        {{/is}}
+                {% endif%}
+            {% endfor %}
+        {% endif%}
 
 
-        {{#each groups}}
-            {{#is name ../theme.groupSelection}}
-                {{#each endpoints}}
-                    {{#is id ../../theme.itemSelection}}
-                        {{> hub-endpoint }}
-                    {{/is}}
-                {{/each}}
-            {{/is}}
-        {{/each}}
+        {%if "all" === theme.groupSelection%}
+            {%if "httperrors" === theme.itemSelection%}
+                {% includeWith "includes/hub-httperrors.html", with={
+                    errors: errors
+                } %}
+            {% endif%}
+        {% endif%}
 
 
+
+        {% for group in groups %}
+            {%if group.name === theme.groupSelection%}
+                {% for endpoint in group.endpoints %}
+                    {%if endpoint.id === theme.itemSelection%}
+                        {% includeWith "includes/hub-endpoint.html", with={
+                            endpoint: endpoint
+                        } %}
+                    {% endif%}
+                {% endfor %}
+            {% endif%}
+        {% endfor %}
+
+
+     </div>
+        {% include "includes/hub-sidebar.html" %}
     </div>
 
-    {{> hub-sidebar }}
-  </div>
-
-  {{> hub-footer }}
+{% include "includes/hub-footer.html" %}
 </body>
 </html>
 

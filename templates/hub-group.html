@@ -1,43 +1,41 @@
-{{> hub-head }}
+{% include "includes/hub-head.html" %}
+
 
 <body>
-  {{> hub-header }}
+    {% include "includes/hub-header.html" %}
 
   <div id="wrapper">
     <div class="content">
 
-            {{#each groups}}
-                {{#is name ../theme.groupSelection}}
+            {% for group in groups %}
+                <section class="group" id="group-{{group.name}}">
 
-                    <section class="group" id="group-{{name}}">
+                    <h1>{{group.name}}</h1>
+                    <p>{{group.description}}</p>
 
-                        <h1>{{name}}</h1>
-                        <p>{{description}}</p>
+                    {% for text in group.text.before %}
+                        <div class="before {{text.class}}">{{text.html | safe}}</div>
+                    {% endfor %}
 
-                        {{#each text.before}}
-                            <div class="before {{class}}">{{{html}}}</div>
-                        {{/each}}
+                    {% for endpoint in group.endpoints %}
+                        {% includeWith "includes/hub-endpoint.html", with={
+                            endpoint: endpoint
+                        } %}
+                    {% endfor %}
+
+                    {% for text in group.text.after %}
+                        <div class="after {{text.class}}">{{text.html | safe}}</div>
+                    {% endfor %}
+
+                </section>
+            {% endfor %}
 
 
-                        {{#each endpoints}}
-                            {{> hub-endpoint }}
-                        {{/each}}
 
-                        {{#each text.after}}
-                            <div class="after {{class}}">{{{html}}}</div>
-                        {{/each}}
-
-                    </section>
-
-                {{/is}}
-            {{/each}}
-
+        </div>
+        {% include "includes/hub-sidebar.html" %}
     </div>
 
-    {{> hub-sidebar }}
-  </div>
-
-  {{> hub-footer }}
+{% include "includes/hub-footer.html" %}
 </body>
 </html>
-

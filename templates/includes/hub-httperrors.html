@@ -1,5 +1,5 @@
 
-{{#if errors}}
+{%if errors%}
     <section id="httperrors" class="group">
         <h1>HTTP errors</h1>
         <p>The API endpoints can return a number HTTP errors if something goes wrong with your request.
@@ -11,13 +11,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{#each errors}}
+                {% for error in errors %}
                 <tr>
-                    <td><code>{{statusCode}}</code></td>
-                    <td>{{description}}</td>
+                    <td><code>{{error.statusCode}}</code></td>
+                    <td>{{error.description}}</td>
                 </tr>
-                {{/each}}
+                {% endfor %}
                 </tbody>
         </table>
     </section>
-{{/if}}
+{% endif %}

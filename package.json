@@ -1,6 +1,6 @@
 {
     "name": "waypointer-hub",
-    "version": "0.1.1",
+    "version": "0.1.0",
     "description": "A html theme for waypointer based lossly on githubs api documentation style.",
     "keywords": [
         "plain",
@@ -21,9 +21,6 @@
     },
     "author": "Glenn Jones <glennjonesnet@gmail.com> (http://glennjones.net/)",
     "license": "MIT",
-    "dependencies": {
-        "@hapi/hoek": "^9.0.2"
-    },
     "devDependencies": {
         "inert": "^3.2.0",
         "vision": "^4.0.1",

@@ -1,0 +1,101 @@
+<section id="{{endpoint.id}}" class="group-item endpoint">
+
+    <h2>{{endpoint.summary}}</h2>
+    <p>{{endpoint.description}}</p>
+
+    {% for text in endpoint.text.before %}
+        <div class="before {{text.class}}">{{text.html | safe}}</div>
+    {% endfor %}
+
+    <!-- endpoint.path need turning into github format -->
+    <pre><code class="curl">{{endpoint.method | upper}} {{endpoint.path | hubUrlTemplate}}</code></pre>
+
+    {%if endpoint.parameters.header%}
+        <h3>Headers parameters</h3>
+        <table>
+            {% include "includes/hub-tablehead.html" %}
+            <tbody>
+                {% for header in endpoint.parameters.header %}
+                    {% includeWith "includes/hub-tablerow.html", with={
+                            item: header
+                    } %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+
+    {%if endpoint.parameters.query%}
+        <h3>Querystring parameters</h3>
+        <table>
+            {% include "includes/hub-tablehead.html" %}
+            <tbody>
+                {% for query in endpoint.parameters.query %}
+                    {% includeWith "includes/hub-tablerow.html", with={
+                            item: query
+                    } %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+
+    {%if endpoint.parameters.path%}
+        <h3>Path parameters</h3>
+        <table>
+            {% include "includes/hub-tablehead.html" %}
+            <tbody>
+                {% for path in endpoint.parameters.path %}
+                    {% includeWith "includes/hub-tablerow.html", with={
+                            item: path
+                    } %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+
+    {%if endpoint.parameters.form%}
+        <h3>Form parameters</h3>
+        <table>
+            {% include "includes/hub-tablehead.html" %}
+            <tbody>
+                {% for form in endpoint.parameters.form %}
+                    {% includeWith "includes/hub-tablerow.html", with={
+                            item: form
+                    } %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+
+    {%if endpoint.parameters.body%}
+        <h3>Example</h3>
+        {%if endpoint.parameters.body.examples%}
+            {% for example in endpoint.parameters.body.examples %}
+                <pre><code class="{{example.format}}">{{example.data}}</code></pre>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+
+    {%if endpoint.responses.success%}
+        {% for success in endpoint.responses.success %}
+             {%if success.examples%}
+                <h3>Response</h3>
+<pre class="highlight highlight-headers"><code>Status: {{success.statusCode}} {{success.description}}
+{% for header in success.headers%}{{loop.index}}: {{header.example}}{% endfor %}</code></pre>
+                {% for example in success.examples%}
+<pre class="highlight highlight-json"><code class="{{example.name | lower}}">{{example.data}}</code></pre>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+    {% for text in endpoint.text.after %}
+        <div class="after {{text.class}}">{{text.html | safe}}</div>
+    {% endfor %}
+
+</section>

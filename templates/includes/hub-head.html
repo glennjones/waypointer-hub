@@ -8,22 +8,22 @@
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <title>{{info.title}}</title>
 
-    {{#each theme.cssLinks}}
-        <link href="{{this}}" rel="stylesheet" />
-    {{/each}}
+    {% for item in theme.cssLinks %}
+        <link href="{{ item }}" rel="stylesheet" />
+    {% endfor %}
 
-    {{#each theme.jsLinks}}
-        <script src="{{this}}"></script>
-    {{/each}}
+    {% for item in theme.jsLinks %}
+        <script src="{{ item }}"></script>
+    {% endfor %}
 
     <script>
         var groupSelection, itemSelection;
-        {{#if theme.groupSelection}}
+        {%if theme.groupSelection%}
             groupSelection = '{{theme.groupSelection}}';
-        {{/if}}
-        {{#if theme.itemSelection}}
+        {% endif %}
+        {%if theme.groupSelection%}
             itemSelection = '{{theme.itemSelection}}';
-        {{/if}}
+        {% endif %}
     </script>
 
 

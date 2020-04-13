@@ -1,0 +1,9 @@
+
+<div id="footer">
+    <div class="lower_footer">
+        <span>
+            Waypointer Theme: {%if  theme.url%}<a href="{{theme.url}}">{% endif %}{{ theme.name |upper}}{% if  theme.url%}</a>{% endif %}
+            {% if  theme.license%} &dash; License: {{theme.license}}{% endif %}
+        </span>
+    </div>
+</div>

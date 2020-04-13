@@ -1,0 +1,51 @@
+<div id="js-sidebar" class="sidebar-shell sticky">
+    <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+
+            {% set theme = theme %}
+            <li>
+                <ul class="js-guides">
+                {% if text.before%}
+                    {% for text in text.before %}
+                        <li id="text-{{text.id}}-menu"><a class="single-menu-item" href="{{theme.pathRoot}}/text/{{text.id}}">{{text.name}}</a></li>
+                    {% endfor %}
+                {% endif %}
+                </ul>
+            </li>
+
+            {% for group in groups %}
+                <li id="{{name}}-menu" class="js-topic">
+                    <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="{{theme.pathRoot}}/{{group.name}}">{{group.name}}</a></h3>
+                    <ul class="js-guides">
+                    {% set groupName = group.name %}
+                    {% for endpoint in group.endpoints %}
+                        <li id="{{groupName}}-{{endpoint.id}}-menu"><a href="{{theme.pathRoot}}/{{groupName}}#{{endpoint.id}}">{{endpoint.summary}}</a></li>
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+
+
+            {% if errors%}
+                <li>
+                <ul class="js-guides">
+                    <li id="all-httperrors-menu"><a class="single-menu-item" href="{{theme.pathRoot}}/all/httperrors">HTTP errors</a></li>
+                </ul>
+                </li>
+            {% endif %}
+
+            {% if text.after%}
+            <li>
+                <ul class="js-guides">
+                        {% for text in text.after %}
+                            <li id="text-{{text.id}}-menu"><a class="single-menu-item" href="{{theme.pathRoot}}/text/{{text.id}}">{{text.name}}</a></li>
+                        {% endfor %}
+                </ul>
+            </li>
+            {% endif %}
+
+
+        </ul>
+    </div>
+
+</div>
