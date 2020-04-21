@@ -6,7 +6,7 @@ const Inert = require('@hapi/inert');
 const Vision = require('@hapi/vision');
 const Hoek = require('@hapi/Hoek');
 const Nunjucks = require('nunjucks');
-const NunjucksTools = require('nunjucks-tools');
+const NunjucksTools = require('@glennjones/nunjucks-tools');
 const WaypointerJSON = require('../bin/waypointer.json');
 const Theme = require('../index.js');
 

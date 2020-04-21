@@ -1,6 +1,6 @@
 {
     "name": "waypointer-hub",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A html theme for waypointer based lossly on githubs api documentation style.",
     "keywords": [
         "plain",
@@ -35,7 +35,7 @@
         "@hapi/wreck": "^17.0.0",
         "blipp": "^4.0.1",
         "nunjucks": "^3.2.1",
-        "nunjucks-tools": "glennjones/nunjucks-tools"
+        "@glennjones/nunjucks-tools": "0.0.2"
     },
     "dependencies": {
         "@hapi/hoek": "^9.0.4"
