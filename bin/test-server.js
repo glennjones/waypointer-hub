@@ -10,8 +10,6 @@ const NunjucksTools = require('nunjucks-tools');
 const WaypointerJSON = require('../bin/waypointer.json');
 const Theme = require('../index.js');
 
-
-const IncludeWith = require('./include-with');
 const assetDirPath = Path.join(__dirname, '..' + Path.sep + 'assets');
 
 
